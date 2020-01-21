@@ -1,0 +1,41 @@
+<img src="hamburger-1294647_640.png" alt="burger">
+
+<h1>Eat-Da-Burger!</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-7" id="devDiv">
+            <ul>
+                {{#each burgers}}
+                    {{#unless devoured}}    
+                        <li>
+                            <div class="liDev" data-id="{{id}}">{{id}}. {{burger_name}}</div>
+                            <button class="liDevBtn" data-id="{{id}}">Devour It</button>
+                        </li>
+                    {{/unless}}
+                {{/each}}
+                </ul>
+            </div>
+            <div class="col-5" id="eatDiv">
+                <ul>
+                    {{#each burgers}}
+                        {{#if devoured}}
+                            <li>
+                                <div class="liEat" data-id="{{id}}">{{id}}. {{burger_name}}</div>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    
+        <form>
+            <div class="form-group" id="burgForm">
+                <textarea class="form-control" id="burgTextarea" rows="3"></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+
+            <h6>Enter a burger you want to eat. Click the "Submit" button.</h6>
+        </form>
+    </div>
