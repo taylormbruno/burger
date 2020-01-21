@@ -11,6 +11,12 @@ h1 {
     font-family: "Lucida Console", Monaco, monospace;
     font-variant: small-caps;
 }
+.nonCol {
+    width: 60%;
+}
+.eatCol {
+    width: 40%;
+}
 ul {
     list-style-type:none;
     padding: 15px;
@@ -43,3 +49,9 @@ ul {
 #burgForm {
     margin: 0 auto;
 }
+
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
