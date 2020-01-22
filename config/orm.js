@@ -32,8 +32,10 @@ let orm = {
     },
     // insert new item to the database
     insertOne: function(input, cb) {
-        let qS = "INSERT INTO burgers(burger_name) VALUES ?";
-        connection.query(qS, input, function(err, result) {
+      // inserts name as null but console log shows the name;
+        let qS = "INSERT INTO burgers (burger_name) VALUES (?)";
+        console.log('input: ', input)
+        connection.query(qS, [input], function(err, result) {
             if (err) throw err;
             cb(result);
         })
@@ -45,7 +47,7 @@ let orm = {
         qS += " WHERE ";
         qS += condition;
 
-        console.log(queryString);
+        console.log(qS);
 
         connection.query(qS, function(err, result) {
             if (err) throw err;
