@@ -1,6 +1,15 @@
 const connection = require("../config/connection");
 
-// Helper function to convert object key/value pairs to SQL syntax
+// Helper function for SQL syntax.
+function printQuestionMarks(num) {
+  var arr = [];
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
+  }
+  return arr.toString();
+}
+
+// Helper function to convert object key/value pairs to SQL syntax from Cats app
 function objToSql(ob) {
     var arr = [];
   
@@ -31,11 +40,17 @@ let orm = {
         });
     },
     // insert new item to the database
-    insertOne: function(input, cb) {
+    insertOne: function(table, cols, vals, cb) {
       // inserts name as null but console log shows the name;
-        let qS = "INSERT INTO burgers (burger_name) VALUES (?)";
-        console.log('input: ', input)
-        connection.query(qS, [input], function(err, result) {
+        let qS = "INSERT INTO " + table;
+        qS += " (";
+        qS += cols.toString();
+        qS += ") ";
+        qS += "VALUES (";
+        qS += printQuestionMarks(vals.length);
+        qS += ") ";
+        console.log('input: ', vals)
+        connection.query(qS, vals, function(err, result) {
             if (err) throw err;
             cb(result);
         })

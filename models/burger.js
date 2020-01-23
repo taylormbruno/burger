@@ -8,8 +8,8 @@ let burger = {
         });
     },
     // insert new burger to db
-    insertOne: function(vals, cb) {
-        orm.insertOne(vals, function(res) {
+    insertOne: function(cols, vals, cb) {
+        orm.insertOne("burgers", cols, vals, function(res) {
             cb(res);
         })
     },
