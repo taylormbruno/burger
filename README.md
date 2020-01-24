@@ -14,7 +14,7 @@ Follow [this link](https://peaceful-falls-09314.herokuapp.com/) to visit the dep
 3. Click the "Devour It" button to move the burger to the list of eaten burgers. 
 
 ### Built With
-* MySSQL
+* MySQL
 * Node.js
 * Express.js
 * Handlebars
