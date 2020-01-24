@@ -6,7 +6,7 @@
 This burger logger will allow you to add your desired burgers to a MySql database and devour said burger at the click of a button.
 
 ## Getting Started
-Follow [this link](addlinkhere) to visit the deployed site.
+Follow [this link](https://peaceful-falls-09314.herokuapp.com/) to visit the deployed site.
 
 ### Instructions
 1. Follow the link above to visit the deployed site.
