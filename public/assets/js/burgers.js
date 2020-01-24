@@ -4,7 +4,6 @@ $(function() {
         let newEatenState = {
             devoured: true
         };
-        console.log(newEatenState);
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: newEatenState
@@ -16,19 +15,23 @@ $(function() {
 
     $(document).on("click", "#newBurg",function(event) {
         event.preventDefault();
+        let bg = $("#burgTextarea").val().trim();
+        console.log("bg: ", bg);
+        if (bg === (undefined || null || '')) {
+            alert("Please type the burger you would like in the form below.");
+        }
+        else {
+            let newBurger = {
+                burger_name: bg
+            };
 
-        let newBurger = {
-            burger_name: $("#burgTextarea").val().trim()
-        };
-        // let newBurger = $("#burgTextarea").val().trim();
-
-        // console.log(newBurger);
-        $.ajax("/api/burgers", {
-            type: "POST",
-            data: newBurger
-        }).then(function() {
-            console.log("Created new burger");
-            location.reload();
-        });
+            $.ajax("/api/burgers", {
+                type: "POST",
+                data: newBurger
+            }).then(function() {
+                console.log("Created new burger");
+                location.reload();
+            });
+        }
     });
 });
